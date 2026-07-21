@@ -35,7 +35,6 @@ app.post("/contact", async (req, res) => {
     console.log("SEND_EMAIL:", process.env.SEND_EMAIL);
 
     try {
-        if(process.env.SEND_EMAIL === "true"){
             console.log("Sending email...");
         await transporter.sendMail({
 
@@ -74,7 +73,7 @@ app.post("/contact", async (req, res) => {
                 </div>
             `
 
-        })};
+        });
 
         res.json({
             message: "Booking sent successfully!"
