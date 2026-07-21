@@ -31,8 +31,12 @@ app.post("/contact", async (req, res) => {
 
     console.log(req.body);
 
+    console.log("EMAIL_USER:", process.env.EMAIL_USER);
+    console.log("SEND_EMAIL:", process.env.SEND_EMAIL);
+
     try {
         if(process.env.SEND_EMAIL === "true"){
+            console.log("Sending email...");
         await transporter.sendMail({
 
             from: process.env.EMAIL_USER,
