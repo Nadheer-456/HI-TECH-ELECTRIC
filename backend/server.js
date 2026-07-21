@@ -16,17 +16,23 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 
 app.post("/contact", async (req, res) => {
 
     const { fullName, phone, service, message } = req.body;
 
+    if (!fullName || !phone || !service || !message) {
+    return res.status(400).json({
+        message: "All fields are required."
+    });
+}
+
     console.log(req.body);
 
     try {
-        if(process.env.send_email === "true"){
+        if(process.env.SEND_EMAIL === "true"){
         await transporter.sendMail({
 
             from: process.env.EMAIL_USER,
@@ -83,5 +89,5 @@ app.post("/contact", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
