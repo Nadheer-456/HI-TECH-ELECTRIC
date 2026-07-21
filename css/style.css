@@ -1,0 +1,1380 @@
+/* Custom Properties */
+:root {
+    --primary-red: #D62828;
+    --secondary-blue: #0056D2;
+    --dark-black: #111111;
+    --light-gray: #F5F5F5;
+    --white: #FFFFFF;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--dark-black);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 { font-weight: 700; }
+a{
+    text-decoration: none;
+}
+
+/* ===========================================
+   PREMIUM NAVBAR
+=========================================== */
+
+.navbar{
+
+    background:#fff;
+    padding:12px 0;
+    transition:.35s ease;
+    box-shadow:0 4px 20px rgba(0,0,0,.06);
+
+}
+
+/* Logo */
+
+.brand-icon{
+
+    font-size:2rem;
+    color:#E53935;
+    margin-right:12px;
+
+}
+
+.brand-text{
+
+    display:flex;
+    flex-direction:column;
+    line-height:1.1;
+
+}
+
+.brand-main{
+
+    font-size:1.55rem;
+    font-weight:800;
+    color:#111827;
+    letter-spacing:.5px;
+
+}
+
+.brand-blue{
+
+    color:#0056D2;
+
+}
+
+.brand-sub{
+
+    font-size:.75rem;
+    color:#64748B;
+    font-weight:600;
+    letter-spacing:.4px;
+    margin-top:2px;
+
+}
+
+/* Navigation */
+
+.navbar-nav{
+
+    align-items:center;
+    gap:12px;
+
+}
+
+.nav-link{
+
+    position:relative;
+    font-weight:600;
+    color:#111827 !important;
+    padding:10px 14px !important;
+    transition:.3s;
+
+}
+
+/* Underline only for normal nav links */
+.nav-link:not(.dropdown-toggle)::after{
+
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:4px;
+    width:0;
+    height:2px;
+    background:#E53935;
+    transition:.3s;
+    transform:translateX(-50%);
+
+}
+
+.nav-link:not(.dropdown-toggle):hover::after,
+.nav-link:not(.dropdown-toggle).active::after{
+
+    width:70%;
+
+}
+
+
+.nav-link:hover,
+
+.nav-link.active{
+
+    color:#E53935 !important;
+
+}
+
+/*menu*/
+
+.dropdown-menu{
+
+    border:none;
+    border-radius:14px;
+    padding:12px 0;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+
+}
+
+.dropdown-item{
+
+    padding:12px 22px;
+    transition:.25s;
+
+}
+
+.dropdown-item:hover{
+
+    background:#EAF3FF;
+    color:#0056D2;
+    padding-left:28px;
+
+}
+
+/*call button*/
+
+.btn-red {
+    background: var(--primary-red);
+    color: var(--white);
+    border-radius: 50px;
+    padding: 12px 30px;
+    border: none;
+    transition: var(--transition);
+}
+.btn-red:hover { background: #b32121; color: white; transform: translateY(-5px); }
+
+
+.btn-blue {
+    background: var(--secondary-blue);
+    color: var(--white);
+    border-radius: 50px;
+    padding: 12px 30px;
+    border: none;
+    transition: var(--transition);
+}
+.btn-blue:hover { background: #0044a8; color: white; transform: translateY(-3px); }
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero{
+    background:#F8FAFC;
+    padding:90px 0;
+    overflow:hidden;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#EAF3FF;
+    color:#0056D2;
+    padding:10px 20px;
+    border-radius:50px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.hero-heading{
+    font-size:3.3rem;
+    font-weight:800;
+    line-height:1.15;
+    color:#1E293B;
+    margin-bottom:22px;
+}
+
+.hero-heading span{
+    display:block;
+    color:#0056D2;
+    margin-top:8px;
+}
+
+.hero-text{
+    font-size:1.1rem;
+    line-height:1.8;
+    color:#64748B;
+    margin-bottom:35px;
+    max-width:550px;
+}
+
+.hero-list{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(180px,1fr));
+    gap:15px 25px;
+    margin-bottom:40px;
+}
+
+.hero-list div{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:600;
+    color:#334155;
+}
+
+.hero-list i{
+    color:#16A34A;
+    font-size:18px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.hero-buttons a{
+    text-decoration:none;
+}
+
+.hero-image-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.hero-image{
+    width:100%;
+    max-width:520px;
+    border-radius:24px;
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+}
+
+/* =====================================================
+   WHY CHOOSE US SECTION
+===================================================== */
+
+.why-us{
+    background:#FFFFFF;
+}
+
+.section-tag{
+    display:inline-block;
+    background:#EAF3FF;
+    color:#0056D2;
+    padding:8px 18px;
+    border-radius:50px;
+    font-size:.9rem;
+    font-weight:700;
+    letter-spacing:.5px;
+    margin-bottom:18px;
+}
+
+.section-title{
+    font-size:2.6rem;
+    font-weight:800;
+    color:#1E293B;
+    margin-bottom:15px;
+}
+
+.section-subtitle{
+    max-width:700px;
+    margin:auto;
+    color:#64748B;
+    font-size:1.05rem;
+    line-height:1.8;
+}
+
+/* ================= Cards ================= */
+
+.feature-card{
+
+    background:#fff;
+    border-radius:20px;
+    padding:35px;
+    height:100%;
+    border:1px solid #EEF2F7;
+    transition:.35s ease;
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-10px);
+    box-shadow:0 20px 45px rgba(15,23,42,.12);
+    border-color:#0056D2;
+
+}
+
+/* ================= Icon ================= */
+
+.feature-icon{
+
+    width:70px;
+    height:70px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#EAF3FF;
+    color:#0056D2;
+    font-size:28px;
+    margin-bottom:25px;
+    transition:.35s ease;
+
+}
+
+.feature-card:hover .feature-icon{
+
+    background:#0056D2;
+    color:#fff;
+    transform:rotate(-8deg) scale(1.05);
+
+}
+
+/* ================= Typography ================= */
+
+.feature-card h4{
+
+    font-size:1.35rem;
+    font-weight:700;
+    color:#1E293B;
+    margin-bottom:15px;
+
+}
+
+.feature-card p{
+
+    color:#64748B;
+    line-height:1.8;
+    margin:0;
+}
+
+/* ========================================
+   TRUST HIGHLIGHTS
+======================================== */
+
+.trust-highlights{
+
+    background:#F8FAFC;
+
+}
+
+.trust-card{
+
+    background:#fff;
+    border-radius:20px;
+    padding:35px 20px;
+    text-align:center;
+    height:100%;
+    border:1px solid #EEF2F7;
+    box-shadow:0 10px 30px rgba(15,23,42,.05);
+    transition:.35s ease;
+
+}
+
+.trust-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(15,23,42,.12);
+
+}
+
+.trust-icon{
+
+    width:70px;
+    height:70px;
+    margin:auto;
+    margin-bottom:20px;
+    border-radius:18px;
+    background:#EAF3FF;
+    color:#0056D2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    transition:.35s;
+
+}
+
+.trust-card:hover .trust-icon{
+
+    background:#0056D2;
+    color:#fff;
+    transform:scale(1.05);
+
+}
+
+.trust-card h3{
+
+    font-size:2rem;
+    font-weight:800;
+    color:#1E293B;
+    margin-bottom:10px;
+
+}
+
+.trust-card p{
+
+    color:#64748B;
+    margin:0;
+    font-weight:600;
+
+}
+
+
+
+/* Cards */
+.modern-card {
+    border: none;
+    border-radius: 15px;
+    background: var(--white);
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+    height: 100%;
+}
+.modern-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: var(--light-gray);
+    color: var(--primary-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Process Steps */
+.step-item { position: relative; text-align: center; }
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: var(--secondary-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-weight: bold;
+}
+
+/* ==================================================
+   PREMIUM FOOTER
+================================================== */
+
+.site-footer{
+
+    background:#0F172A;
+    color:#CBD5E1;
+    padding:70px 0 20px;
+
+}
+
+.footer-logo{
+
+    color:#fff;
+    font-size:1.8rem;
+    font-weight:800;
+    margin-bottom:20px;
+
+}
+
+.footer-description{
+
+    line-height:1.8;
+    margin-bottom:25px;
+    color:#94A3B8;
+
+}
+
+.footer-contact p{
+
+    margin-bottom:14px;
+    color:#CBD5E1;
+
+}
+
+.footer-contact i{
+
+    width:28px;
+    color:#EF4444;
+
+}
+
+.site-footer h5{
+
+    color:#fff;
+    font-weight:700;
+    margin-bottom:20px;
+
+}
+
+/* ==========================
+   Links
+========================== */
+
+.footer-links{
+
+    list-style:none;
+    padding:0;
+    margin:0;
+
+}
+
+.footer-links li{
+
+    margin-bottom:14px;
+
+}
+
+.footer-links a{
+
+    color:#CBD5E1;
+    text-decoration:none;
+    transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+    color:#3B82F6;
+    padding-left:8px;
+
+}
+
+/* ==========================
+   Social
+========================== */
+
+.footer-social{
+
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+
+}
+
+.footer-social a{
+
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:#1E293B;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    transition:.35s;
+
+}
+
+.footer-social a:hover{
+
+    background:#0056D2;
+    transform:translateY(-6px);
+
+}
+
+/* ==========================
+   CTA Card
+========================== */
+
+.footer-cta{
+
+    background:#1E293B;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    height:100%;
+
+}
+
+.footer-cta i{
+
+    font-size:42px;
+    color:#EF4444;
+    margin-bottom:20px;
+
+}
+
+.footer-cta h4{
+
+    color:#fff;
+    margin-bottom:15px;
+    font-weight:700;
+
+}
+
+.footer-cta p{
+
+    color:#CBD5E1;
+    margin-bottom:30px;
+
+}
+
+.footer-cta a{
+    text-decoration: none;
+}
+
+/* ==========================
+   Divider
+========================== */
+
+.footer-divider{
+
+    border-color:#334155;
+    margin:50px 0 25px;
+
+}
+
+/* ==========================
+   Bottom
+========================== */
+
+.footer-bottom{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+
+}
+
+.footer-bottom p{
+
+    margin:0;
+    color:#94A3B8;
+
+}
+
+.footer-bottom strong{
+
+    color:#fff;
+
+}
+
+
+/* ==========================================
+   PAGE HEADER  in service.html
+========================================== */
+
+.page-header{
+
+    background:#F8FAFC;
+    padding:80px 0;
+
+
+}
+
+.page-title{
+
+    font-size:3rem;
+    font-weight:800;
+    color:#111827;
+    margin:20px 0;
+
+}
+
+.page-subtitle{
+
+    max-width:700px;
+    margin:auto;
+    color:#64748B;
+    font-size:1.1rem;
+    line-height:1.8;
+
+}
+
+.breadcrumb-item a{
+
+    text-decoration:none;
+    color:#0056D2;
+
+}
+
+.breadcrumb-item.active{
+
+    color:#64748B;
+
+}
+
+/* ==========================================
+   SERVICE CARDS
+========================================== */
+
+.service-image{
+
+    width:100%;
+    height:240px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:22px;
+    transition:.35s;
+
+}
+
+.modern-card{
+
+    border-radius:22px;
+    transition:.35s;
+    overflow:hidden;
+    height:100%;
+
+}
+
+.modern-card:hover{
+
+    transform:translateY(-8px);
+    box-shadow:0 18px 45px rgba(0,0,0,.12);
+
+}
+
+.modern-card:hover .service-image{
+
+    transform:scale(1.05);
+
+}
+
+.modern-card h4{
+
+    font-weight:700;
+    margin-bottom:15px;
+
+}
+
+.modern-card p{
+
+    line-height:1.8;
+
+}
+
+/* ===========================
+   SERVICE DETAILS
+===========================*/
+
+.service-header{
+
+    background:#F8FAFC;
+    padding:70px 0 50px;
+    text-align:center;
+
+}
+
+.service-title{
+
+    font-size:3rem;
+    font-weight:800;
+    margin:20px 0;
+    color:#111827;
+
+}
+
+.service-subtitle{
+
+    max-width:760px;
+    margin:auto;
+    color:#64748B;
+    line-height:1.8;
+
+}
+
+.service-banner{
+
+    width:100%;
+    height:480px;
+    object-fit:cover;
+    border-radius:22px;
+    margin-bottom:45px;
+
+}
+
+.service-overview{
+
+    max-width:900px;
+    margin:0 auto 50px;
+    text-align:center;
+
+}
+
+.service-overview h2{
+
+    font-weight:700;
+    margin-bottom:20px;
+
+}
+
+.service-overview p{
+
+    font-size:1.15rem;
+    color:#475569;
+    line-height:1.9;
+    max-width:900px;
+    margin:0 auto;
+
+}
+
+.feature-grid{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    max-width:1100px;
+    margin:40px auto 60px;
+
+}
+
+.feature-item{
+
+    background:#ffffff;
+    border-radius:18px;
+    padding:28px 22px;
+    text-align:center;
+    border:2px solid #313131;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    transition:.35s ease;
+    cursor:default;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.feature-item i{
+
+    display:block;
+    font-size:2rem;
+    color:#E53935;
+    margin-bottom:15px;
+
+}
+
+.feature-item:hover{
+
+    transform:translateY(-10px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+    border-color:#d20000;
+
+}
+
+.feature-item{
+
+    font-size:1.05rem;
+    font-weight:600;
+    color:#111827;
+
+}
+
+.feature-item h5{
+
+    font-weight:700;
+    margin-bottom:12px;
+    color:#111827;
+
+}
+
+.feature-item p{
+
+    font-size:.95rem;
+    color:#64748B;
+    line-height:1.7;
+    margin:0;
+
+}
+
+.booking-card{
+
+    background:#0056D2;
+    color:#fff;
+    border-radius:22px;
+    padding:40px;
+    max-width:700px;
+    margin:0 auto;
+    text-align:center;
+
+}
+
+.booking-card h3{
+
+    font-weight:700;
+    margin-bottom:20px;
+
+}
+
+.booking-card p{
+
+    line-height:2;
+    margin-bottom:30px;
+
+}
+
+.booking-card .btn-red{
+
+    display:inline-block;
+    min-width:220px;
+
+}
+
+.service-overview-text{
+
+    font-size:1.1rem;
+
+    line-height:1.9;
+
+    color:#475569;
+
+}
+
+.about-highlights{
+
+    margin-top:30px;
+
+}
+
+.about-highlights div{
+
+    margin-bottom:18px;
+
+    font-weight:600;
+
+}
+
+.about-highlights i{
+
+    color:#E53935;
+
+    margin-right:12px;
+
+}
+
+/* ================= WHATSAPP FLOAT ================= */
+
+.whatsapp-float{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:65px;
+
+    height:65px;
+
+    background:#25D366;
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+
+    text-decoration:none;
+
+    box-shadow:0 10px 25px rgba(37,211,102,.35);
+
+    z-index:999;
+
+    transition:.3s;
+
+    animation:whatsappPulse 2s infinite;
+
+}
+
+.whatsapp-float:hover{
+
+    color:#fff;
+
+    transform:translateY(-6px) scale(1.08);
+
+    box-shadow:0 15px 35px rgba(37,211,102,.45);
+
+}
+
+@keyframes whatsappPulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(37,211,102,.5);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 18px rgba(37,211,102,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(37,211,102,0);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .whatsapp-float{
+
+        width:58px;
+
+        height:58px;
+
+        right:18px;
+
+        bottom:18px;
+
+        font-size:1.8rem;
+
+    }
+
+}
+
+
+/* Utilities */
+.section-padding { padding: 100px 0; }
+.bg-light-gray { background-color: var(--light-gray); }
+
+/* ===========================
+   Mobile RESPONSIVE
+=========================== */
+
+@media (max-width:991px){
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+
+    padding:10px 0;
+
+}
+
+.brand-main{
+
+    font-size:1.25rem;
+
+}
+
+.brand-sub{
+
+    font-size:.65rem;
+
+}
+
+.navbar-collapse{
+
+    margin-top:15px;
+    background:#fff;
+    border-radius:16px;
+    padding:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.navbar-nav{
+
+    gap:5px;
+
+}
+
+.nav-item:last-child{
+
+    margin-top:12px;
+
+}
+
+.nav-item .btn-red{
+
+    width:100%;
+
+}
+
+
+/* ===========================
+   Mobile-HERO SECTION
+=========================== */
+
+.hero{
+    padding:60px 0;
+}
+
+.hero-heading{
+    font-size:2.3rem;
+    text-align:center;
+}
+
+.hero-badge{
+    margin:auto;
+    margin-bottom:18px;
+}
+
+.hero-text{
+    text-align:center;
+    margin:auto;
+    margin-bottom:30px;
+}
+
+.hero-list{
+    grid-template-columns:1fr;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.hero-buttons a{
+    width:100%;
+    text-align:center;
+}
+
+.hero-image{
+    margin-top:40px;
+    max-width:380px;
+}
+
+/* =========================================
+   MOBILE- WHY CHOOSE US 
+========================================= */
+
+.section-title{
+
+    font-size:2rem;
+
+}
+
+.section-subtitle{
+
+    font-size:1rem;
+
+}
+
+.feature-card{
+
+    padding:28px;
+
+}
+
+.feature-icon{
+
+    width:60px;
+    height:60px;
+    font-size:24px;
+
+}
+
+/* ========================================
+   MOBILE- TRUST HIGHLIGHTS
+======================================== */
+
+.trust-card{
+
+    padding:25px 15px;
+
+}
+
+.trust-card h3{
+
+    font-size:1.5rem;
+
+}
+
+.trust-icon{
+
+    width:60px;
+    height:60px;
+    font-size:24px;
+
+}
+
+/* =========================================
+   MOBILE-FOOTER
+========================================= */
+
+.footer-logo{
+
+    text-align:center;
+
+}
+
+.footer-description{
+
+    text-align:center;
+
+}
+
+.footer-contact{
+
+    text-align:center;
+
+}
+
+.footer-social{
+
+    justify-content:center;
+    margin-bottom:35px;
+
+}
+
+.site-footer h5{
+
+    margin-top:20px;
+
+}
+
+.footer-cta{
+
+    margin-top:20px;
+
+}
+
+.footer-bottom{
+
+    flex-direction:column;
+    text-align:center;
+
+}
+
+/* ==========================================
+   MOBILE-PAGE HEADER
+========================================== */
+
+.page-header{
+
+    padding:60px 0;
+
+}
+
+.page-title{
+
+    font-size:2.2rem;
+
+}
+
+.page-subtitle{
+
+    font-size:1rem;
+
+}
+
+/* ===========================
+   MOBILE_SERVICE DETAILS
+===========================*/
+
+.service-title{
+
+    font-size:2.2rem;
+
+}
+
+.service-banner{
+
+    height:300px;
+
+}
+
+.booking-card{
+
+    padding:30px 20px;
+    margin: 10px 0px;
+
+}
+
+
+.feature-grid{
+
+    grid-template-columns:1fr;
+    gap:18px;
+
+}
+
+.feature-item{
+
+    padding:22px;
+    margin: 10px 0px;
+
+}
+
+/* ================= MOBILE-CONTACT PAGE ================= */
+
+
+    .contact-header{
+
+        padding:80px 0 60px;
+
+    }
+
+    .page-title{
+
+        font-size:2.2rem;
+
+    }
+
+    .page-subtitle{
+
+        font-size:1rem;
+
+        line-height:1.7;
+
+    }
+
+    .form-container{
+
+        padding:25px 18px;
+
+        border-radius:16px;
+
+    }
+
+    .form-control,
+    .form-select{
+
+        font-size:16px;
+
+        padding:12px 14px;
+
+    }
+
+    .btn-submit{
+
+        padding:14px;
+
+    }
+
+    .contact-card{
+
+        padding:24px;
+
+    }
+
+}
+
+
