@@ -9,10 +9,20 @@ app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS
+    }
+});
+
+transporter.verify(function (error, success) {
+    if (error) {
+        console.error("Transporter Error:", error);
+    } else {
+        console.log("SMTP server is ready.");
     }
 });
 
@@ -59,7 +69,7 @@ app.post("/contact", async (req, res) => {
 
                     <p><strong>🛠️ Service Required:</strong> ${service}</p>
 
-                    <p><strong>📝 Customer Message:</strong></p>
+                    <p><strong> 📝 Customer Message:</strong></p>
 
                     <div style="
                         background:#f8f9fa;
@@ -90,6 +100,8 @@ app.post("/contact", async (req, res) => {
     }
 
 });
+
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
