@@ -39,6 +39,7 @@ app.post("/contact", async (req, res) => {
 
             from: '"HI-TECH ELECTRIC" <hitechelectrician1@gmail.com>',
 
+            to: "hitechelectrician1@gmail.com",
 
             subject: "New Electrician Booking",
 
