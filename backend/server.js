@@ -9,12 +9,13 @@ app.use(cors());
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp-relay.brevo.com",
+    port: 587,
+    secure: false,
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    },
-    family: 4
+        user: process.env.BREVO_USER,
+        pass: process.env.BREVO_PASS
+    }
 });
 
 const PORT = process.env.PORT || 5000;
@@ -32,16 +33,12 @@ app.post("/contact", async (req, res) => {
 
     console.log(req.body);
 
-    console.log("EMAIL_USER:", process.env.EMAIL_USER);
-    console.log("SEND_EMAIL:", process.env.SEND_EMAIL);
 
     try {
-            console.log("Sending email...");
         await transporter.sendMail({
 
-            from: process.env.EMAIL_USER,
+            from: '"HI-TECH ELECTRIC" <hitechelectrician1@gmail.com>',
 
-            to: process.env.EMAIL_USER,
 
             subject: "New Electrician Booking",
 

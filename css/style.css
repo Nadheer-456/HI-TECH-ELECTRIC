@@ -974,7 +974,7 @@ a{
 
     right:25px;
 
-    bottom:25px;
+    bottom: 80px;
 
     width:65px;
 
@@ -1041,14 +1041,14 @@ a{
 @media(max-width:768px){
 
     .whatsapp-float{
-
+            
         width:58px;
 
         height:58px;
 
         right:18px;
 
-        bottom:18px;
+        bottom:80px;
 
         font-size:1.8rem;
 
