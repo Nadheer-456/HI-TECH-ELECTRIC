@@ -72,7 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     })
                 });
 
-                const data = await response.json();
+                const text = await response.text();
+
+                console.log(text);
 
                 Swal.close();
 
@@ -91,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     Swal.fire({
                         icon: "error",
                         title: "Booking Failed",
-                        text: data.message
+                        text: text
                     });
 
                 }
