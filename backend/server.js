@@ -93,8 +93,8 @@ app.post("/contact", async (req, res) => {
 
         });
 
-        console.log("✅ Email Sent Successfully");
-        console.log(response);
+        console.log("✅ Email sent successfully");
+        console.log("Message ID:", response.data?.id);
 
         return res.status(200).json({
             message: "Booking sent successfully!"
