@@ -43,44 +43,8 @@ app.post("/contact", async (req, res) => {
 
 
     try {
-        await transporter.sendMail({
 
-            from: '"HI-TECH ELECTRIC" <hitechelectrician1@gmail.com>',
-
-            to: "hitechelectrician1@gmail.com",
-
-            subject: "New Electrician Booking",
-
-            html: `
-                <div style="font-family: Arial, sans-serif; line-height:1.7;">
-
-                    <h2 style="color:#0056D2;">
-                        🔌 New Electrical Service Booking
-                    </h2>
-
-                    <hr>
-
-                    <p><strong>👤 Customer Name:</strong> ${fullName}</p>
-
-                    <p><strong>📞 Phone Number:</strong> ${phone}</p>
-
-                    <p><strong>🛠️ Service Required:</strong> ${service}</p>
-
-                    <p><strong> 📝 Customer Message:</strong></p>
-
-                    <div style="
-                        background:#f8f9fa;
-                        padding:15px;
-                        border-left:4px solid #0056D2;
-                        border-radius:6px;
-                    ">
-                        ${message}
-                    </div>
-
-                </div>
-            `
-
-        });
+            console.log("Pretending to send email");
 
         res.json({
             message: "Booking sent successfully!"

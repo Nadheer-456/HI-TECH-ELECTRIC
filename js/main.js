@@ -57,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     });
 
-                const response = await fetch("https://hi-tech-electric.onrender.com/contact", {
+            try {
+
+            const response = await fetch("https://hi-tech-electric.onrender.com/contact", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -79,12 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     Swal.fire({
                         icon: "success",
                         title: "Booking Confirmed!",
-                        html: `
-                            <b>Thank you, ${fullName}!</b><br><br>
-                            Your booking has been received successfully.<br><br>
-                            Our electrician will contact you shortly.
-                        `,
-                        confirmButtonColor: "#0056D2"
+                        text: "Your booking has been received."
                     });
 
                     contactForm.reset();
@@ -94,13 +91,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     Swal.fire({
                         icon: "error",
                         title: "Booking Failed",
-                        text: data.message || "Something went wrong. Please try again."
+                        text: data.message
                     });
 
                 }
 
-                submitButton.disabled = false;
-                submitButton.innerHTML = "Submit Request";
+            } catch (err) {
+
+                Swal.close();
+
+                console.error(err);
+
+                Swal.fire({
+                    icon: "error",
+                    title: "Network Error",
+                    text: err.message
+                });
+
+            }
+
+            submitButton.disabled = false;
+            submitButton.innerHTML = "Submit Request";
 
             });
 
