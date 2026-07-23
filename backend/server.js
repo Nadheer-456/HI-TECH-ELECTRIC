@@ -1,9 +1,12 @@
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 require("dotenv").config();
 
 const app = express();
+
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Middleware
 app.use(cors({
@@ -17,15 +20,6 @@ app.use(cors({
 }));
 
 app.use(express.json());
-
-// Nodemailer Transporter
-const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
-});
 
 const PORT = process.env.PORT || 5000;
 
@@ -53,16 +47,16 @@ app.post("/contact", async (req, res) => {
 
     try {
 
-        const info = await transporter.sendMail({
+        const response = await resend.emails.send({
 
-            from: `"HI-TECH ELECTRIC" <${process.env.EMAIL_USER}>`,
+            from: "HI-TECH ELECTRIC <onboarding@resend.dev>",
 
-            to: process.env.EMAIL_USER,
+            to: process.env.RECEIVER_EMAIL,
 
-            subject: `🔌 New Electrical Service Booking`,
+            subject: "🔌 New Electrical Service Booking",
 
             html: `
-                <div style="font-family: Arial, sans-serif; line-height:1.7;">
+                <div style="font-family: Arial, sans-serif; line-height:1.7; max-width:600px; margin:auto;">
 
                     <h2 style="color:#0056D2;">
                         🔌 New Electrical Service Booking
@@ -83,9 +77,16 @@ app.post("/contact", async (req, res) => {
                         padding:15px;
                         border-left:4px solid #0056D2;
                         border-radius:6px;
+                        white-space:pre-wrap;
                     ">
                         ${message}
                     </div>
+
+                    <br>
+
+                    <p style="color:#666;font-size:14px;">
+                        This booking was submitted from the HI-TECH ELECTRIC website.
+                    </p>
 
                 </div>
             `
@@ -93,7 +94,7 @@ app.post("/contact", async (req, res) => {
         });
 
         console.log("✅ Email Sent Successfully");
-        console.log(info.response);
+        console.log(response);
 
         return res.status(200).json({
             message: "Booking sent successfully!"
@@ -114,5 +115,5 @@ app.post("/contact", async (req, res) => {
 
 // Start Server
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
 });
